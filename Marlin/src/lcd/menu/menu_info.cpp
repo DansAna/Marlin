@@ -265,11 +265,11 @@ void menu_info_board() {
   void menu_info_printer() {
     if (ui.use_click()) return ui.go_back();
     START_SCREEN();
-    STATIC_ITEM_P(PSTR(MSG_MARLIN), SS_CENTER|SS_INVERT);       // Marlin
-    STATIC_ITEM_P(PSTR(SHORT_BUILD_VERSION));                   // x.x.x-Branch
-    STATIC_ITEM_P(PSTR(STRING_DISTRIBUTION_DATE));              // YYYY-MM-DD HH:MM
-    STATIC_ITEM_P(PSTR(MACHINE_NAME));                          // My3DPrinter
-    STATIC_ITEM_P(PSTR(WEBSITE_URL));                           // www.my3dprinter.com
+    STATIC_ITEM_P(PSTR(MSG_MARLIN), SS_CENTER|SS_INVERT);   // Marlin
+    STATIC_ITEM_P(PSTR(SHORT_BUILD_VERSION));               // FW Version as defined in Marlin/Version.h
+    STATIC_ITEM_P(PSTR(DETAILED_BUILD_VERSION));            // Configuration.h Version 
+    STATIC_ITEM_P(PSTR(STRING_DISTRIBUTION_DATE));          // Configuration_adv.h Version
+    STATIC_ITEM_P(PSTR(MACHINE_NAME));                      // DansEnderFive
     char buffer[21];
     VALUE_ITEM_P(MSG_INFO_EXTRUDERS, STRINGIFY(EXTRUDERS), SS_CENTER); // Extruders: 2
     #if ENABLED(AUTO_BED_LEVELING_3POINT)
