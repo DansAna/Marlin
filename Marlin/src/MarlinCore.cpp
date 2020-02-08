@@ -1,6 +1,6 @@
 /**
  * Marlin 3D Printer Firmware
- * Copyright (c) 2019 MarlinFirmware [https://github.com/MarlinFirmware/Marlin]
+ * Copyright (c) 2020 MarlinFirmware [https://github.com/MarlinFirmware/Marlin]
  *
  * Based on Sprinter and grbl.
  * Copyright (c) 2011 Camiel Gubbels / Erik van der Zalm
@@ -880,15 +880,10 @@ void setup() {
 
   #if NUM_SERIAL > 0
     MYSERIAL0.begin(BAUDRATE);
-    #if NUM_SERIAL > 1
-      MYSERIAL1.begin(BAUDRATE);
-    #endif
-  #endif
-
-  #if NUM_SERIAL > 0
     uint32_t serial_connect_timeout = millis() + 1000UL;
     while (!MYSERIAL0 && PENDING(millis(), serial_connect_timeout)) { /*nada*/ }
     #if NUM_SERIAL > 1
+      MYSERIAL1.begin(BAUDRATE);
       serial_connect_timeout = millis() + 1000UL;
       while (!MYSERIAL1 && PENDING(millis(), serial_connect_timeout)) { /*nada*/ }
     #endif
